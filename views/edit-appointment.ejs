@@ -1,0 +1,72 @@
+<% include partials/header.ejs %>
+<div class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Create An Appointment</span>
+</div>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (casei) { %>
+        <form class="edit-appointment-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="case_id">Case ID</label>
+                    <input type="text" class="form-control" name="case_id" id="case_id" value="<%= casei.case_id %>" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="nric">NRIC</label>
+                    <input type="text" class="form-control" name="nric" id="nric" value="<%= casei.nric %>" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="system">System</label>
+                    <input type="text" class="form-control" name="system" id="system" value="<%= casei.system %>" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="total_severity_score">Severity Score</label>
+                    <input type="text" class="form-control" name="total_severity_score" id="total_severity_score" value="<%= casei.total_severity_score %>" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="selection_sent">Advice sent time</label>
+                    <input type="text" class="form-control" name="selection_sent" id="selection_sent" value="<%= casei.selection_sent %>" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="selection">Advice</label>
+                    <select id="selection" name="selection" class="form-control" required disabled>
+                        <option selected><%= casei.selection %></option>
+                        <option>5 days</option>
+                        <option>1-2 weeks</option>
+                        <option>2-3 weeks</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="appointment_time">Appointment Time</label>
+                    <input id="appointment_time" type="datetime-local" name="appointment_time" value="<%= casei.appointment_time %>" required>
+                </div>
+                </div>
+                    <div class="form-row">
+
+
+                <div class="form-group col-md-6">
+                    <label for="licence_id_consultant">Consultant Licence ID </label>
+                    <input type="text" class="form-control" name="licence_id_consultant" id="licence_id_consultant" value="<%= casei.licence_id_consultant %>" required>
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Create Appointment</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

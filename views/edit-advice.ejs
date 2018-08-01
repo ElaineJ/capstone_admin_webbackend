@@ -1,0 +1,65 @@
+<% include partials/header.ejs %>
+<div class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Advice on Referral</span>
+</div>
+
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (casei) { %>
+        <form class="edit-advice-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="case_id">Case ID</label>
+                    <input type="text" class="form-control" name="case_id" id="case_id" value="<%= casei.case_id %>" required disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="nric">NRIC</label>
+                    <input type="text" class="form-control" name="nric" id="nric" value="<%= casei.nric %>" required disabled>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="system">System</label>
+                    <input type="text" class="form-control" name="system" id="system" value="<%= casei.system %>" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="total_severity_score">Severity Score</label>
+                    <input type="text" class="form-control" name="total_severity_score" id="total_severity_score" value="<%= casei.total_severity_score %>" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="selection_sent">Advice sent time</label>
+                    <input id="selection_sent" type="datetime-local" name="selection_sent" value="<%= casei.selection_sent %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="selection">Advice</label>
+                    <select id="selection" name="selection" class="form-control" required>
+                        <option selected><%= casei.selection %></option>
+                        <option>5 days</option>
+                        <option>1-2 weeks</option>
+                        <option>2-3 weeks</option>
+
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="consultant_input">Licence ID Of Advicing Consultant</label>
+                    <input type="text" class="form-control" name="consultant_input" id="consultant_input" value="<%= casei.consultant_input %>" required>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success float-right">Submit Advice</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

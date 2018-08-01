@@ -1,0 +1,99 @@
+<% include partials/header.ejs %>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    th{
+        font-size: 15px;
+
+    }
+    td{
+        font-size: 15px;
+
+    }
+
+    .btn-group  {
+        display: block;
+    }
+</style>
+    <div class="table-wrapper">
+        <% if (cases.length > 0) {%>
+
+        <table class="table table-striped" style="width:100%">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" >Case Id</th>
+                        <th scope="col" >NRIC</th>
+                        <th scope="col" >Drug Allergies</th>
+                        <th scope="col" >Medical History</th>
+                        <th scope="col" >System</th>
+                        <th scope="col" >Symptoms </th>
+                        <th scope="col" >Signs</th>
+                        <th scope="col" >Advice</th>
+                        <th scope="col" >Severity Score</th>
+                        <th scope="col" >Appointment Date/Time</th>
+                        <th scope="col" >Consultant In Charge</th>
+                        <th scope="col" >Advice/Appointment</th>
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cases.forEach((casei, index) => { %>
+                        <tr>
+                            <th scope="row"><%= casei.case_id %></th>
+                            <td><%= casei.nric %></td>
+                            <td><%= casei.allergy %></td>
+                            <td><%= casei.medical_history %></td>
+                            <td>
+                                <ul>
+                                    <% for(var i=0; i<casei.system.split(",").length; i++) {%>
+                                    <li><%= casei.system.split(",")[i] %></li>
+                                    <% } %>
+                                </ul>
+                            </td>
+                            <td >
+                            <ul>
+                                <% for(var i=0; i<casei.symptoms.split(",").length; i++) {%>
+                                <li><%= casei.symptoms.split(",")[i] %></li>
+                                <% } %>
+                            </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <% for(var i=0; i<casei.signs.split(",").length; i++) {%>
+                                    <li><%= casei.signs.split(",")[i] %></li>
+                                    <% } %>
+                                </ul>
+                            </td>
+                            <td><%= casei.selection %></td>
+                            <td><%= casei.total_severity_score %></td>
+                            <td><%= casei.appointment_time %></td>
+                            <td><%= casei.consultant_name %></td>
+                            <td>
+                                <div class="btn-group">
+
+                                <a href="/appointment/<%= casei.case_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Create Appointment</a>
+                                &nbsp;
+                                <a href="/advice/<%= casei.case_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-danger">Submit Advice</a>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No cases found.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
