@@ -53,23 +53,37 @@
                             <td><%= casei.medical_history %></td>
                             <td>
                                 <ul>
-                                    <% for(var i=0; i<casei.system.split(",").length; i++) {%>
-                                    <li><%= casei.system.split(",")[i] %></li>
-                                    <% } %>
+                                    <%
+                                    if (casei.system){
+                                        for(var i=0; i<casei.system.split(",").length; i++)
+                                        {%>
+                                            <li><%= casei.system.split(",")[i] %></li>
+                                        <% }
+                                    }
+                                        %>
                                 </ul>
                             </td>
                             <td >
                             <ul>
-                                <% for(var i=0; i<casei.symptoms.split(",").length; i++) {%>
-                                <li><%= casei.symptoms.split(",")[i] %></li>
-                                <% } %>
+                                <%
+                                if (casei.symptoms){
+                                    for(var i=0; i<casei.symptoms.split(",").length; i++)
+                                    {%>
+                                        <li><%= casei.symptoms.split(",")[i] %></li>
+                                    <% }
+                                } %>
                             </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <% for(var i=0; i<casei.signs.split(",").length; i++) {%>
-                                    <li><%= casei.signs.split(",")[i] %></li>
-                                    <% } %>
+                                    <%
+                                    if (casei.signs) {
+                                        for(var i=0; i<casei.signs.split(",").length; i++)
+                                            {%>
+                                                <li><%= casei.signs.split(",")[i] %></li>
+                                             <% }
+                                        }
+                                    %>
                                 </ul>
                             </td>
                             <td><%= casei.selection %></td>

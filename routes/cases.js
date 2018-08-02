@@ -22,7 +22,7 @@ module.exports = {
         let caseId = req.params.case_id;
         let appointment_time = req.body.appointment_time;
         let licence_id_consultant = req.body.licence_id_consultant;
-
+        let nric = req.body.nric;
 
         let query1 = "UPDATE cases SET appointment_time = '" + appointment_time + "' WHERE cases.case_id = '" + caseId + "'";
         let query2 = "INSERT INTO case_consultants VALUES('" + caseId + "','" + licence_id_consultant + "')";
@@ -32,6 +32,14 @@ module.exports = {
                 return res.status(500).send(err);
             }
             db.query(query2, (err, result) => {
+                const title = "this is the notif title";
+                const body = "this is the body";
+                const urlString = 'http://localhost:1337/api/v1/notifications/push-notification?' +
+                    'nric=' +nric + "+title=" + title + "+body=" + body;
+
+                fetch(urlString,{
+                    method:'POST',
+                });
 
                 res.redirect('/');
             });

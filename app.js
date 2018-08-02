@@ -17,6 +17,10 @@ const db = mysql.createConnection ({
     user: 'root',
     password: 'password',
     database: 'CapstoneDB'
+    // host: 'ncube-core-instance.c1f23absy0yo.ap-southeast-1.rds.amazonaws.com',
+    // user: 'MasterConsultant',
+    // password: 'Capstone12!',
+    // database: 'nCubedDB'
 });
 
 // connect to database
