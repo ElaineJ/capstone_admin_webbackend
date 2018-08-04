@@ -24,7 +24,7 @@ module.exports = {
         let licence_id_consultant = req.body.licence_id_consultant;
         let nric = req.body.nric;
 
-        let query1 = "UPDATE cases SET appointment_time = '" + appointment_time + "' WHERE cases.case_id = '" + caseId + "'";
+        let query1 = "UPDATE cases SET appointment_time = '" + appointment_time + "' , assigned = TRUE"+" WHERE cases.case_id = '" + caseId + "'";
         let query2 = "INSERT INTO case_consultants VALUES('" + caseId + "','" + licence_id_consultant + "')";
         console.log(query2);
         db.query(query1, (err, result) => {

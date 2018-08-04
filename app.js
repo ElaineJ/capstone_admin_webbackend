@@ -13,14 +13,15 @@ const port = 2000;
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'CapstoneDB'
-    // host: 'ncube-core-instance.c1f23absy0yo.ap-southeast-1.rds.amazonaws.com',
-    // user: 'MasterConsultant',
-    // password: 'Capstone12!',
-    // database: 'nCubedDB'
+    // host: 'localhost',
+    // user: 'root',
+    // password: 'password',
+    // database: 'CapstoneDB'
+    host: 'ncube-core-instance.c1f23absy0yo.ap-southeast-1.rds.amazonaws.com',
+    port: '3306',
+    user: 'MasterConsultant',
+    password: 'Capstone12!',
+    database: 'nCubedDB'
 });
 
 // connect to database
