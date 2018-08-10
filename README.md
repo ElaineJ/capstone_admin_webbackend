@@ -17,3 +17,9 @@ ejs: templating engine to render html pages for the app.
 req-flash: used to send flash messages to the view
 
 nodemon: Installed globally. It is used to watch for changes to files and automatically restart the server.
+
+## Run the following for the commands to run the code
+
+npm install express express-fileupload body-parser mysql ejs req-flash --save
+
+npm install nodemon -g
