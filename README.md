@@ -23,3 +23,8 @@ nodemon: Installed globally. It is used to watch for changes to files and automa
 npm install express express-fileupload body-parser mysql ejs req-flash --save
 
 npm install nodemon -g
+
+## To launch 
+
+nodemon app.js
+
